@@ -42,15 +42,9 @@ jobs:
 
     steps:
     
-    - name: checkout-sfcio
-      uses: actions/checkout@v4
-      with: 
-        path: sfcio
-
     - name: recipe-check
-      run: |
-        echo "If this jobs fails, look at the most recently output CMake option below and make sure that option appears in spack/package.py"
-        for opt in $(grep -ioP '^option\(\K(?!(ENABLE_DOCS))[^ ]+' $GITHUB_WORKSPACE/sfcio/CMakeLists.txt) ; do
-          echo "Checking for presence of '$opt' CMake option in package.py"
-          grep -cP "define.+\b${opt}\b" $GITHUB_WORKSPACE/sfcio/spack/package.py
-        done
+      uses: NOAA-EMC/ci-check-spack-recipe@develop
+      with:
+        recipe-file: package/spack/package.py
+        cmakelists-txt: package/CMakeLists.txt
+        ignore-list: ENABLE_DOCS
