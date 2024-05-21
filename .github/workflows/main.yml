@@ -38,7 +38,7 @@ jobs:
     - name: build
       run: |
         cmake -S sfcio -B sfcio/build -DENABLE_TESTS=ON -DCMAKE_PREFIX_PATH="~/pfunit;~/"
-        ctest --build sfcio/build
+        cmake --build sfcio/build
     
     - name: test
       run: ctest --test-dir sfcio/build --output-on-failure
