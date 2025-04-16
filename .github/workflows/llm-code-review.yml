@@ -14,7 +14,8 @@ jobs:
     - name: "Code review"
       uses: AlexanderRichert-NOAA/ci-llm-code-review@develop
       with:
-        backend: gh-phi-4
+        backend: gh-gpt-4o
         api-key-variable: GH_API_KEY
         reference-owner: AlexanderRichert-NOAA
         reference-branch: develop
+        save-diff-files: true
