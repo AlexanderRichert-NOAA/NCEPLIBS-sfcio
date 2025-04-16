@@ -18,3 +18,4 @@ jobs:
         api-key-variable: GH_API_KEY
         reference-owner: AlexanderRichert-NOAA
         reference-branch: develop
+        prompt-text: "Create a code review for the following file diff. Structure the review as 'Summary of changes,' 'Possible errors,' and 'Suggestions' with possible better approaches if appropriate. Infer functionality from throughout the code but focus your review solely on the new and removed lines indicated by + and - symbols.\n"
